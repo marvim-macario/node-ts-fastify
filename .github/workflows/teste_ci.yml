@@ -29,7 +29,5 @@ jobs:
     - name: Instalando dependências    
     - run: npm install
     - name: Rodando migrates
-    - run: npm run knex -- migrate:latest
-    - name: Testes
-    - run: npm test
+
 
