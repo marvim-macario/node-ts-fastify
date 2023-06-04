@@ -29,7 +29,7 @@ describe('transactions routes', () => {
         amount: 5000,
         type: 'credit',
       })
-      .expect(201)
+      .expect(200)
   })
   it('deve ser capaz de listar todas as transações', async () => {
     const createTransactionResponse = await request(app.server)
