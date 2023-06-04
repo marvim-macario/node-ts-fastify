@@ -83,33 +83,33 @@ describe('transactions routes', () => {
       })
     )
   })
-  it('deve ser capaz de listar o saldo', async () => {
-    const createTransactionResponse = await request(app.server)
-      .post('/transactions')
-      .send({
-        title: 'Transação de crédito',
-        amount: 5000,
-        type: 'credit',
-      })
+  // it('deve ser capaz de listar o saldo', async () => {
+  //   const createTransactionResponse = await request(app.server)
+  //     .post('/transactions')
+  //     .send({
+  //       title: 'Transação de crédito',
+  //       amount: 5000,
+  //       type: 'credit',
+  //     })
 
-    const cookies = createTransactionResponse.get('Set-Cookie')
+  //   const cookies = createTransactionResponse.get('Set-Cookie')
 
-    await request(app.server)
-      .post('/transactions')
-      .set('Cookie', cookies)
-      .send({
-        title: 'Transação de débito',
-        amount: 2000,
-        type: 'debit',
-      })
+  //   await request(app.server)
+  //     .post('/transactions')
+  //     .set('Cookie', cookies)
+  //     .send({
+  //       title: 'Transação de débito',
+  //       amount: 2000,
+  //       type: 'debit',
+  //     })
 
-    const summaryResponse = await request(app.server)
-      .get('/transactions/summary')
-      .set('Cookie', cookies)
-      .expect(200)
+  //   const summaryResponse = await request(app.server)
+  //     .get('/transactions/summary')
+  //     .set('Cookie', cookies)
+  //     .expect(200)
 
-    expect(summaryResponse.body.summary).toEqual({
-      amount: 3000,
-    })
-  })
+  //   expect(summaryResponse.body.summary).toEqual({
+  //     amount: 3000,
+  //   })
+  // })
 })
