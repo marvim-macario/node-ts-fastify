@@ -28,6 +28,6 @@ jobs:
         cache: 'npm'
     - name: Instalando dependências    
     - run: npm install
-    - name: Rodando migrates
+   
 
 
