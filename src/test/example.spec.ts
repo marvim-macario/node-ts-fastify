@@ -20,6 +20,10 @@ describe('transactions routes', () => {
     execSync('npm run knex migrate:latest')
   })
 
+  it('deve ser capaz de testar rota de testes', async () => {
+    const testResponse = await request(app.server).get('/transactions/teste')
+    expect(testResponse.body).toEqual({ message: 'Testando rotas...' })
+  })
   // testando a requisição de transações
   it('deve ser capaz de criar uma nova transação', async () => {
     await request(app.server)
