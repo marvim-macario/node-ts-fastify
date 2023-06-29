@@ -8,7 +8,7 @@ import { checkSessionIdExists } from '../middlewares/check-session-id-exists'
 
 export async function transactionRoutes(app: FastifyInstance) {
   app.get('/teste', async (req, res) => {
-    return { message: 'ok' }
+    return { message: 'Testando rotas' }
   })
   app.get(
     '/',
