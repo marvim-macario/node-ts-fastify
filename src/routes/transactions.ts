@@ -4,12 +4,13 @@ import { z } from 'zod'
 import { randomUUID } from 'crypto'
 import { checkSessionIdExists } from '../middlewares/check-session-id-exists'
 
-// Cookies <-> formas da gente manter o contexto entre requisições
+// Cookies <-> uma das formas de manter o contexto entre requisições.
 
 export async function transactionRoutes(app: FastifyInstance) {
   app.get('/teste', async (req, res) => {
-    return { message: 'Testando rotas...' }
+    return { message: 'Testando rotas' }
   })
+
   app.get(
     '/',
     { preHandler: [checkSessionIdExists] },
